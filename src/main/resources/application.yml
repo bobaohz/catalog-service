@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: catalog-service
+##  config:
+##    import: "optional:configserver:"
+  cloud:
+    config:
+      enabled: false
+
+  datasource:
+    username: user
+    password: password
+    url: jdbc:postgresql://localhost:5432/polardb_catalog
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+server:
+  port: 8080
+  tomcat:
+    connection-timeout: 2s
+    keep-alive-timeout: 15s
+    threads:
+      max: 50
+      min-spare: 5
+
+polar:
+  greeting: Welcome to the Spring Configuration World from Yaml file
+  testdata:
+    enabled: true
