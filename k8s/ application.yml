@@ -1,0 +1,18 @@
+polar:
+  greeting: Welcome to the book catalog from Kubernetes - KUSTIMZATION!
+spring:
+  datasource:
+    url: jdbc:postgresql://polar-postgres/polardb_catalog
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://polar-keycloak/realms/PolarBookshop
+
+configMapGenerator:
+  - name: catalog-config
+    files:
+      - application.yml
+    options:
+      labels:
+        app: catalog-service

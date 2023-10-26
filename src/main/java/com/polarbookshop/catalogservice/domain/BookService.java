@@ -42,7 +42,9 @@ public class BookService {
                             book.publisher(),
                             book.createdDate(),
                             book.lastModifiedDate(),
-                            existingBook.version());
+                            existingBook.version(),
+                            book.createdBy(),
+                            book.lastModifiedBy());
                     return bookRepository.save(bookToUpdate);
                 })
                 .orElseGet(() -> addBookToCatalog(book));
