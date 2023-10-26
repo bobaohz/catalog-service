@@ -51,7 +51,7 @@ class BookControllerMvcTests {
         mockMvc
       .perform(MockMvcRequestBuilders.delete("/books/" + isbn)
             .with(SecurityMockMvcRequestPostProcessors.jwt()
-                    .authorities(new SimpleGrantedAuthority("ROLE_employee1"))))
+                    .authorities(new SimpleGrantedAuthority("ROLE_employee"))))
             .andExpect(MockMvcResultMatchers.status().isNoContent());
     }
 
